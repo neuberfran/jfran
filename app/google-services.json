@@ -1,0 +1,225 @@
+{
+  "project_info": {
+    "project_number": "454138110069",
+    "firebase_url": "https://blink-29d54.firebaseio.com",
+    "project_id": "blink-29d54",
+    "storage_bucket": "blink-29d54.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454138110069:android:b829b809fa80a6f3db983c",
+        "android_client_info": {
+          "package_name": "com.example.firebase_todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454138110069-8r6ugnkuf69up8emqp5ak9ej3m42fh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1cksZVTQLsKVieZ94Cp1BeGbBlYRK7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454138110069-dv7dkk0b4g91i9j26mvems6uml9p02m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454138110069:android:9b1f1c8320e1292cdb983c",
+        "android_client_info": {
+          "package_name": "neuberfran.com.jfran"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454138110069-q5r4ibkv44ldf2h9ftgmicr5mts9l8o6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "neuberfran.com.jfran",
+            "certificate_hash": "ba8e727e6536639a687cf8f478e51e110a8808ac"
+          }
+        },
+        {
+          "client_id": "454138110069-8r6ugnkuf69up8emqp5ak9ej3m42fh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1cksZVTQLsKVieZ94Cp1BeGbBlYRK7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454138110069-dv7dkk0b4g91i9j26mvems6uml9p02m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454138110069:android:5febc7faecc8bdb2db983c",
+        "android_client_info": {
+          "package_name": "neuberfran.everything.firebaseeverything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454138110069-b561m8htujedp9luhchpfpcairjffu14.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "neuberfran.everything.firebaseeverything",
+            "certificate_hash": "ba8e727e6536639a687cf8f478e51e110a8808ac"
+          }
+        },
+        {
+          "client_id": "454138110069-8r6ugnkuf69up8emqp5ak9ej3m42fh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1cksZVTQLsKVieZ94Cp1BeGbBlYRK7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454138110069-dv7dkk0b4g91i9j26mvems6uml9p02m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454138110069:android:0d465a16dc1e9135db983c",
+        "android_client_info": {
+          "package_name": "neuberfran.firestoreeverything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454138110069-8nbt2tseg2dp2qg7ft9f12k81g728igq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "neuberfran.firestoreeverything",
+            "certificate_hash": "ba8e727e6536639a687cf8f478e51e110a8808ac"
+          }
+        },
+        {
+          "client_id": "454138110069-8r6ugnkuf69up8emqp5ak9ej3m42fh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1cksZVTQLsKVieZ94Cp1BeGbBlYRK7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454138110069-dv7dkk0b4g91i9j26mvems6uml9p02m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454138110069:android:6b1c43fff58be044db983c",
+        "android_client_info": {
+          "package_name": "neuberfran.firestoreioteverything"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454138110069-02d8gtgbejqtm90rr27flft702ki44oq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "neuberfran.firestoreioteverything",
+            "certificate_hash": "eec92400cf1f182c42ebb975da45fedc6cbe1779"
+          }
+        },
+        {
+          "client_id": "454138110069-stikcvi56g18l4uka4euj306k7rqpost.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "neuberfran.firestoreioteverything",
+            "certificate_hash": "ba8e727e6536639a687cf8f478e51e110a8808ac"
+          }
+        },
+        {
+          "client_id": "454138110069-8r6ugnkuf69up8emqp5ak9ej3m42fh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1cksZVTQLsKVieZ94Cp1BeGbBlYRK7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454138110069-dv7dkk0b4g91i9j26mvems6uml9p02m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:454138110069:android:225afd6c23fd9d58db983c",
+        "android_client_info": {
+          "package_name": "neuberfran.jthings"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "454138110069-8r6ugnkuf69up8emqp5ak9ej3m42fh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAh1cksZVTQLsKVieZ94Cp1BeGbBlYRK7w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "454138110069-dv7dkk0b4g91i9j26mvems6uml9p02m8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
