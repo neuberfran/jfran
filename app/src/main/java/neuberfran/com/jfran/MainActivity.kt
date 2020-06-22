@@ -5,23 +5,18 @@ import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.google.android.things.pio.Gpio
 import com.google.android.things.pio.GpioCallback
 import com.google.android.things.pio.PeripheralManager
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.toList
-import neuberfran.com.jfran.model.FireFran
 import neuberfran.com.jfran.repository.FireRepository
 import neuberfran.com.jfran.viewmodel.FireViewModel
 import timber.log.Timber
 import java.io.IOException
-import java.lang.Runnable
-import java.util.logging.Logger
-import androidx.lifecycle.ViewModelProvider
 
 var db = FirebaseFirestore.getInstance()
 var alarmState = db.collection("products").document("tutorial")
@@ -61,34 +56,20 @@ class MainActivity : Activity() {
             this.gpioalarmstate = gpioalarmstate
             gpioalarmstate.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW)
             gpioalarmstate.setActiveType(Gpio.ACTIVE_HIGH)
+//            var valor = FireRepository.getInstance().getFireFranById("tutorial").value?.gpioalarmstate
 
-//            iotestadoViewModel = ViewModelProvider(this, FireViewModel.MainViewModelFactory(FireRepository())
-//
-//            ).get(FireViewModel::class.java)
-
-            val iotestadoViewModel = ViewModelProvider(this).get(FireViewModel::class.java)
-
-            val hotStockLiveData = iotestadoViewModel.getFireFranById("tutorial").value?.gpioalarmstate
-
-            Log.w(TAG, "Listen 94334 94334 94334." + hotStockLiveData)
-
-            if (hotStockLiveData!!.equals(1)) {
-                try {
-                    gpioalarmstate?.setValue(false)
-
-                } catch (e: IOException) {
-                    Timber.d(e.toString(), "Error on PeripheralIO API")
-                }
-            } else {
-                try {
-                    gpioalarmstate?.setValue(true)
-                } catch (e: IOException) {
-                    Timber.d(e.toString(), "Error on PeripheralIO API")
-                }
+            var valor = FireRepository.getInstance().loadBook("tutorial").map {
+                gpioalarmstate
             }
+            if (valor!!.equals(1)) {
+//
+                    gpioalarmstate?.setValue(true)
+                    Log.w(TAG, "Listen 94334 94334 94334." + valor)
 
-
-
+            } else {
+                    gpioalarmstate?.setValue(false)
+                    Log.w(TAG, "Listen 94335 94335 94335" + valor)
+            }
         } catch (e: IOException) {
             Timber.d(e.toString(),"Error on PeripheralIO API")
         }
@@ -175,8 +156,6 @@ class MainActivity : Activity() {
 
             }).start()
 
-//            db.collection("products").document("tutorial")
-//                    .set(data1, SetOptions.merge())
             return true
         }
 
@@ -207,11 +186,8 @@ class MainActivity : Activity() {
                 }
             }).start()
 
-//            db.collection("products").document("tutorial")
-//                    .set(data3, SetOptions.merge())
             return true
         }
-//        override fun onGpioError(gpio: Gpio?, error: Int) = LOG.severe("$gpio Error event $error")
 
         override fun onGpioError(gpio: Gpio?, error: Int) = Timber.d("$gpio Error event $error")
     }
@@ -242,5 +218,4 @@ class MainActivity : Activity() {
             }
         }
      }
-
 }
