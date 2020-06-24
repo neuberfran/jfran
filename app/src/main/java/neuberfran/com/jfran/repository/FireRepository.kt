@@ -28,9 +28,9 @@ class FireRepository() {
     val changeGpio: LiveData<Int>
         get() = _changeGpio
 // mudei
-    init {
-        _changeGpio.value = 0
-    }
+//    init {
+//        _changeGpio.value = 0
+//    }
 
     init {
         mFirestore = FirebaseFirestore.getInstance()
@@ -85,7 +85,7 @@ class FireRepository() {
         return liveProject
     }
 
-    fun loadBook(bookId: String): Flow<FireFranB?> {
+     fun loadBook(bookId: String): Flow<FireFranB?> {
         return channelFlow {
             val subscription = mFirestore.collection(FireFran.COLLECTION)
                 .document(bookId)
@@ -106,7 +106,6 @@ class FireRepository() {
             awaitClose { subscription.remove() }
         }
     }
-
 
     fun changeValueGpioAlarm() {
 
