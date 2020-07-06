@@ -11,7 +11,7 @@ class FireFran {
         var FIELD_garagestate = "garagestate"
         var FIELD_gpioalarmstate  = "gpioalarmstate"
         var FIELD_gpiogaragestate = "gpiogaragestate"
-        var FIELD_gcu = "gcu"
+
     }
 
     var id: String? = null
@@ -19,9 +19,8 @@ class FireFran {
 
     var alarmstate: Boolean  = false
     var garagestate: Boolean = false
-    var gcu: Boolean = false
 
-    var gpioalarmstate: Int  = 0
-    var gpiogaragestate: Int = 0
+    var gpioalarmstate: Boolean  = false
+    var gpiogaragestate: Boolean = false
 
 }

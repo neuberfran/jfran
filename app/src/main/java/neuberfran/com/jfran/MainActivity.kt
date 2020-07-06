@@ -32,15 +32,12 @@ var data4=hashMapOf("garagestate" to false)
 
 class MainActivity : Activity() {
 
- //   private lateinit var iotestadoViewModel: FireViewModel
-
     private val LOG = Logger.getLogger(this.javaClass.name)
     private val TAG = MainActivity::class.java.simpleName
 
     var db = FirebaseFirestore.getInstance()
     var gpalarmstate = db.collection("products").document("tutorial")
     var gpgaragestate = db.collection("products").document("tutorial")
-
 
     private var gpioalarmstateb: Gpio? = null
 
@@ -65,69 +62,85 @@ class MainActivity : Activity() {
             gpioalarmstateb.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW)
             gpioalarmstateb.setActiveType(Gpio.ACTIVE_HIGH)
 
-            gpalarmstate.addSnapshotListener { snapshot, e ->
+            var valor = FireRepository.getInstance().loadBook("tutorial").map {
+                gpioalarmstateb.value
+            }
 
-                if (e != null) {
-                    Log.w(LOG.toString(), "Listen failed.", e)
-                    return@addSnapshotListener
-                }
+            if (valor) {
 
-                var vlrgpalarm=snapshot?.toObject(FireFran::class.java)?.gpioalarmstate
+                gpioalarmstateb?.setValue(true)
+                Log.w(TAG, "Listen 94334 94334 94334," + valor)
 
-                Log.w(TAG, "Listen 94333 94333 94333." + vlrgpalarm)
-
-                if (vlrgpalarm!!.equals(1)) {
-
-                    gpioalarmstateb?.setValue(true)
-                    Log.w(TAG, "Listen 94334 94334 94334." + vlrgpalarm)
-
-                } else {
-                    gpioalarmstateb?.setValue(false)
-                    Log.w(TAG, "Listen 94335 94335 94335" + vlrgpalarm)
-                }
-
+            } else {
+                gpioalarmstateb?.setValue(false)
+                Log.w(TAG, "Listen 94335 94335 94335," + valor)
             }
 
         } catch (e: IOException) {
-            Timber.d(e.toString(),"Error on PeripheralIO API")
+            Timber.d(e.toString(), "Error on PeripheralIO API")
         }
 
+//            gpalarmstate.addSnapshotListener { snapshot, e ->
+//
+//                if (e != null) {
+//                    Log.w(LOG.toString(), "Listen failed.", e)
+//                    return@addSnapshotListener
+//                }
+//
+//                var vlrgpalarm=snapshot?.toObject(FireFran::class.java)?.gpioalarmstate
+//
+//                Log.w(TAG, "Listen 94333 94333 94333." + vlrgpalarm)
+//
+//                if (vlrgpalarm!!) {
+//
+//                    gpioalarmstateb?.setValue(true)
+//                    Log.w(TAG, "Listen 94334 94334 94334." + vlrgpalarm)
+//
+//                } else {
+//                    gpioalarmstateb?.setValue(false)
+//                    Log.w(TAG, "Listen 94335 94335 94335" + vlrgpalarm)
+//                }
+//
+//            }
+//
+//        } catch (e: IOException) {
+//            Timber.d(e.toString(),"Error on PeripheralIO API")
+//        }
+//
+//        var gpiogaragestateb: Gpio? = null
+//
+//        try {
+//
+//            gpiogaragestateb = manager.openGpio(BoardDefaults.getGPIOForButton13())
+//            this.gpiogaragestateb = gpiogaragestateb
+//            gpiogaragestateb.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW)
+//            gpiogaragestateb.setActiveType(Gpio.ACTIVE_HIGH)
+//
+//            gpgaragestate.addSnapshotListener { snapshot, e ->
+//
+//                if (e != null) {
+//                    Log.w(LOG.toString(), "Listen failed.", e)
+//                    return@addSnapshotListener
+//                }
+//
+//                var vlrgaragesta=snapshot?.toObject(FireFran::class.java)?.gpiogaragestate
+//
+//                Log.w(TAG, "Listen 94336 94336 94336." + vlrgaragesta)
+//
+//                if (vlrgaragesta!!) {
+//
+//                    gpiogaragestateb?.setValue(true)
+//                    Log.w(TAG, "Listen 94337 94337 94337." + vlrgaragesta)
+//
+//                } else {
+//                    gpiogaragestateb?.setValue(false)
+//                    Log.w(TAG, "Listen 94338 94338 94338" + vlrgaragesta)
+//                }
+//            }
 
-        var gpiogaragestateb: Gpio? = null
-
-        try {
-
-            gpiogaragestateb = manager.openGpio(BoardDefaults.getGPIOForButton13())
-            this.gpiogaragestateb = gpiogaragestateb
-            gpiogaragestateb.setDirection(Gpio.DIRECTION_OUT_INITIALLY_LOW)
-            gpiogaragestateb.setActiveType(Gpio.ACTIVE_HIGH)
-
-            gpgaragestate.addSnapshotListener { snapshot, e ->
-
-                if (e != null) {
-                    Log.w(LOG.toString(), "Listen failed.", e)
-                    return@addSnapshotListener
-                }
-
-                var vlrgaragesta=snapshot?.toObject(FireFran::class.java)?.gpiogaragestate
-
-                Log.w(TAG, "Listen 94336 94336 94336." + vlrgaragesta)
-
-                if (vlrgaragesta!!.equals(1)) {
-
-                    gpioalarmstateb?.setValue(true)
-                    Log.w(TAG, "Listen 94337 94337 94337." + vlrgaragesta)
-
-                } else {
-                    gpioalarmstateb?.setValue(false)
-                    Log.w(TAG, "Listen 94338 94338 94338" + vlrgaragesta)
-                }
-
-            }
-
-        } catch (e: IOException) {
-            Timber.d(e.toString(),"Error on PeripheralIO API")
-        }
+//        } catch (e: IOException) {
+//            Timber.d(e.toString(),"Error on PeripheralIO API")
+//        }
 
         var alarmstate: Gpio? = null
 
@@ -273,6 +286,5 @@ class MainActivity : Activity() {
             }
         }
 
-        
      }
 }

@@ -21,7 +21,7 @@ class FireViewModel(private val repository: FireRepository) : ViewModel() {
         return firefran as MutableLiveData<FireFran>
     }
 
-    val changeGpio:LiveData<Int>
+    val changeGpio:LiveData<Boolean>
         get() = FireRepository.getInstance().changeGpio
 
     val allFireFrans: MutableLiveData<List<FireFran>>

@@ -24,13 +24,13 @@ class FireRepository() {
 
     private var firefransb: FireFran? = null
 
-    private val _changeGpio = MutableLiveData<Int>()
-    val changeGpio: LiveData<Int>
+    private val _changeGpio = MutableLiveData<Boolean>()
+    val changeGpio: LiveData<Boolean>
         get() = _changeGpio
 // mudei
-//    init {
-//        _changeGpio.value = 0
-//    }
+    init {
+        _changeGpio.value = false
+    }
 
     init {
         mFirestore = FirebaseFirestore.getInstance()
@@ -85,7 +85,7 @@ class FireRepository() {
         return liveProject
     }
 
-     fun loadBook(bookId: String): Flow<FireFranB?> {
+     fun loadBook(bookId: String): Flow<FireFran?> {
         return channelFlow {
             val subscription = mFirestore.collection(FireFran.COLLECTION)
                 .document(bookId)
@@ -95,7 +95,7 @@ class FireRepository() {
                         return@addSnapshotListener
                     }
                     if (snapshot != null && snapshot.exists()) {
-                        val book = snapshot.toObject(FireFranB::class.java)
+                        val book = snapshot.toObject(FireFran::class.java)
                         book?.let {
                             channel.offer(it)
                         }
